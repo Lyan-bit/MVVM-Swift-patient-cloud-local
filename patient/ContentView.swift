@@ -5,7 +5,9 @@ import SwiftUI
 
 struct ContentView : View {
 	
-	@ObservedObject var model : ModelFacade
+	@ObservedObject var model : PatientViewModel
+    @ObservedObject var appModel : AppointmentViewModel
+    
 	                                       
 	var body: some View {
 		TabView {
@@ -21,22 +23,22 @@ struct ContentView : View {
             DeletePatientScreen (model: model).tabItem { 
                         Image(systemName: "4.square.fill")
 	                    Text("-Patient")} 
-            CreateAppointmentScreen (model: model).tabItem { 
+            CreateAppointmentScreen (model: appModel).tabItem {
                         Image(systemName: "5.square.fill")
 	                    Text("+Appointment")} 
-            ListAppointmentScreen (model: model).tabItem { 
+            ListAppointmentScreen ().tabItem {
                         Image(systemName: "6.square.fill")
 	                    Text("ListAppointment")} 
-            EditAppointmentScreen (model: model).tabItem { 
+            EditAppointmentScreen (model: appModel).tabItem {
                         Image(systemName: "7.square.fill")
 	                    Text("EditAppointment")} 
-            DeleteAppointmentScreen (model: model).tabItem { 
+            DeleteAppointmentScreen (model: appModel).tabItem {
                         Image(systemName: "8.square.fill")
 	                    Text("-Appointment")} 
-            AddPatientattendsAppointmentScreen (model: model).tabItem { 
+            AddPatientattendsAppointmentScreen (model: model, appModel: appModel).tabItem {
                         Image(systemName: "9.square.fill")
 	                    Text("AddPatientattendsAppointment")} 
-            RemovePatientattendsAppointmentScreen (model: model).tabItem { 
+            RemovePatientattendsAppointmentScreen (model: model, appModel: appModel).tabItem {
                         Image(systemName: "10.square.fill")
 	                    Text("RemovePatientattendsAppointment")} 
 				}.font(.headline)
@@ -45,7 +47,7 @@ struct ContentView : View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(model: ModelFacade.getInstance())
+        ContentView(model: PatientViewModel.getInstance(), appModel: AppointmentViewModel.getInstance())
     }
 }
 

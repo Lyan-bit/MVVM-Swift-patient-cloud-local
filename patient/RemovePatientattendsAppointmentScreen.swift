@@ -5,7 +5,8 @@ struct RemovePatientattendsAppointmentScreen: View {
 	@State var x :String = ""
   	@State var y :String = ""
 
-  	@ObservedObject var model : ModelFacade
+  	@ObservedObject var model : PatientViewModel
+    @ObservedObject var appModel : AppointmentViewModel
 
   var body: some View {
 	  	NavigationView {
@@ -23,7 +24,7 @@ struct RemovePatientattendsAppointmentScreen: View {
 		  Text("appointmentId:").bold()
 		  Divider()
 	      Picker("Appointment:", selection: $x) { 
-	      	ForEach(model.currentAppointments) { Text($0.appointmentId).tag($0.appointmentId)}
+	      	ForEach(appModel.currentAppointments) { Text($0.appointmentId).tag($0.appointmentId)}
 	      }.pickerStyle(.menu)
 	   }.frame(width: 200, height: 30).border(Color.gray)
 
@@ -34,9 +35,9 @@ struct RemovePatientattendsAppointmentScreen: View {
     }.padding(.top).onAppear(perform: 
                 {
                 	model.listPatient()
-                	model.listAppointment()
+        appModel.listAppointment()
                   y = model.currentPatient?.patientId ?? "id"
-                  x = model.currentAppointment?.appointmentId ?? "id"})
+                  x = appModel.currentAppointment?.appointmentId ?? "id"})
      }.navigationTitle("removePatientattendsAppointment")
     }
   }

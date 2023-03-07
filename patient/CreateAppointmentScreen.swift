@@ -4,7 +4,7 @@ import SwiftUI
 struct CreateAppointmentScreen: View {
  
   @State var bean : AppointmentVO = AppointmentVO()
-  @ObservedObject var model : ModelFacade
+  @ObservedObject var model : AppointmentViewModel
 
   var body: some View {
   	NavigationView {
@@ -36,7 +36,7 @@ struct CreateAppointmentScreen: View {
 
 struct CreateAppointmentScreen_Previews: PreviewProvider {
     static var previews: some View {
-        CreateAppointmentScreen(model: ModelFacade.getInstance())
+        CreateAppointmentScreen(model: AppointmentViewModel.getInstance())
     }
 }
 

@@ -4,7 +4,7 @@ import SwiftUI
 struct ListPatientRowScreen: View {
     
     var instance : PatientVO
-    @ObservedObject var model : ModelFacade = ModelFacade.getInstance()
+    @ObservedObject var model : PatientViewModel = PatientViewModel.getInstance()
 
       var body: some View { 
       	ScrollView {

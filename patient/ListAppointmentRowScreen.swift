@@ -4,7 +4,7 @@ import SwiftUI
 struct ListAppointmentRowScreen: View {
     
     var instance : AppointmentVO
-    @ObservedObject var model : ModelFacade = ModelFacade.getInstance()
+    @ObservedObject var model : AppointmentViewModel = AppointmentViewModel.getInstance()
 
       var body: some View { 
       	ScrollView {

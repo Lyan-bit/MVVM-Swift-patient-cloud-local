@@ -3,7 +3,7 @@ import SwiftUI
 
 struct DeleteAppointmentScreen: View {
     @State var objectId: String = ""
-    @ObservedObject var model : ModelFacade
+    @ObservedObject var model : AppointmentViewModel
     
     var body: some View {
   	NavigationView {
@@ -32,7 +32,7 @@ struct DeleteAppointmentScreen: View {
 
 struct DeleteAppointmentScreen_Previews: PreviewProvider {
     static var previews: some View {
-        DeleteAppointmentScreen(model: ModelFacade.getInstance())
+        DeleteAppointmentScreen(model: AppointmentViewModel.getInstance())
     }
 }
 

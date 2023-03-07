@@ -3,7 +3,7 @@ import SwiftUI
 
 struct DeletePatientScreen: View {
     @State var objectId: String = ""
-    @ObservedObject var model : ModelFacade
+    @ObservedObject var model : PatientViewModel
     
     var body: some View {
   	NavigationView {
@@ -32,7 +32,7 @@ struct DeletePatientScreen: View {
 
 struct DeletePatientScreen_Previews: PreviewProvider {
     static var previews: some View {
-        DeletePatientScreen(model: ModelFacade.getInstance())
+        DeletePatientScreen(model: PatientViewModel.getInstance())
     }
 }
 

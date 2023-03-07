@@ -12,7 +12,7 @@ struct patientMain : App {
 
 	var body: some Scene {
 	        WindowGroup {
-	            ContentView(model: ModelFacade.getInstance())
+                ContentView(model: PatientViewModel.getInstance(), appModel: AppointmentViewModel.getInstance())
 	        }
 	    }
 	} 

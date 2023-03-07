@@ -3,7 +3,7 @@ import SwiftUI
 
 struct EditAppointmentScreen: View {
     @State var objectId: String = ""
-    @ObservedObject var model : ModelFacade
+    @ObservedObject var model : AppointmentViewModel
     @State var bean : Appointment = Appointment()
     
     var body: some View {
@@ -49,6 +49,6 @@ HStack (spacing: 20) {
 
 struct EditAppointmentScreen_Previews: PreviewProvider {
     static var previews: some View {
-        EditAppointmentScreen(model: ModelFacade.getInstance())
+        EditAppointmentScreen(model: AppointmentViewModel.getInstance())
     }
 }

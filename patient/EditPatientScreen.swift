@@ -3,7 +3,7 @@ import SwiftUI
 
 struct EditPatientScreen: View {
     @State var objectId: String = ""
-    @ObservedObject var model : ModelFacade
+    @ObservedObject var model : PatientViewModel
     @State var bean : Patient = Patient()
     
     var body: some View {
@@ -54,6 +54,6 @@ HStack (spacing: 20) {
 
 struct EditPatientScreen_Previews: PreviewProvider {
     static var previews: some View {
-        EditPatientScreen(model: ModelFacade.getInstance())
+        EditPatientScreen(model: PatientViewModel.getInstance())
     }
 }

@@ -4,7 +4,7 @@ import SwiftUI
 struct CreatePatientScreen: View {
  
   @State var bean : PatientVO = PatientVO()
-  @ObservedObject var model : ModelFacade
+  @ObservedObject var model : PatientViewModel
 
   var body: some View {
   	NavigationView {
@@ -41,7 +41,7 @@ struct CreatePatientScreen: View {
 
 struct CreatePatientScreen_Previews: PreviewProvider {
     static var previews: some View {
-        CreatePatientScreen(model: ModelFacade.getInstance())
+        CreatePatientScreen(model: PatientViewModel.getInstance())
     }
 }
 

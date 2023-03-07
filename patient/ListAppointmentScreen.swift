@@ -2,7 +2,7 @@
 import SwiftUI
 
 struct ListAppointmentScreen: View {
-    @ObservedObject var model : ModelFacade = ModelFacade.getInstance()
+    @ObservedObject var model : AppointmentViewModel = AppointmentViewModel.getInstance()
 
      var body: some View
      { List(model.currentAppointments){ instance in 
@@ -14,7 +14,7 @@ struct ListAppointmentScreen: View {
 
 struct ListAppointmentScreen_Previews: PreviewProvider {
     static var previews: some View {
-        ListAppointmentScreen(model: ModelFacade.getInstance())
+        ListAppointmentScreen(model: AppointmentViewModel.getInstance())
     }
 }
 
