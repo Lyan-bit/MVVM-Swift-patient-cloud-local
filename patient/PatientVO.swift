@@ -1,7 +1,7 @@
 
 import Foundation
 
-class PatientVO : Hashable, Identifiable, Decodable, Encodable {
+class PatientVO :  Identifiable, Decodable, Encodable {
 
   var patientId: String = ""
   var name: String = ""
@@ -53,19 +53,5 @@ class PatientVO : Hashable, Identifiable, Decodable, Encodable {
 	
   func setAppointmentId(x : String)
 	  { appointmentId = x }
-	  
-
-  static func == (lhs: PatientVO, rhs: PatientVO) -> Bool
-  { return
-      lhs.patientId == rhs.patientId &&
-      lhs.name == rhs.name &&
-      lhs.appointmentId == rhs.appointmentId
-  }
-
-  func hash(into hasher: inout Hasher) {
-    hasher.combine(patientId)
-    hasher.combine(name)
-    hasher.combine(appointmentId)
-  }
 
 }
