@@ -1,7 +1,7 @@
 
 import Foundation
 
-class AppointmentVO : Hashable, Identifiable, Decodable, Encodable {
+class AppointmentVO : Identifiable, Decodable, Encodable {
 
   var appointmentId: String = ""
   var code: String = ""
@@ -44,17 +44,5 @@ class AppointmentVO : Hashable, Identifiable, Decodable, Encodable {
 	
   func setCode(x : String)
 	  { code = x }
-	  
-
-  static func == (lhs: AppointmentVO, rhs: AppointmentVO) -> Bool
-  { return
-      lhs.appointmentId == rhs.appointmentId &&
-      lhs.code == rhs.code
-  }
-
-  func hash(into hasher: inout Hasher) {
-    hasher.combine(appointmentId)
-    hasher.combine(code)
-  }
 
 }
