@@ -2,6 +2,23 @@
 import Foundation
 import SwiftUI
 
+func instanceFromJSON(typeName: String, json: String) -> AnyObject?
+    { let jdata = json.data(using: .utf8)!
+      let decoder = JSONDecoder()
+      if typeName == "String"
+      { let x = try? decoder.decode(String.self, from: jdata)
+          return x as AnyObject
+      }
+if typeName == "Patient"
+  { let x = try? decoder.decode(Patient.self, from: jdata)
+  return x
+}
+if typeName == "Appointment"
+  { let x = try? decoder.decode(Appointment.self, from: jdata)
+  return x
+}
+  return nil
+    }
 
 class PatientViewModel : ObservableObject {
         
@@ -13,8 +30,7 @@ var fileSystem : FileAccessor = FileAccessor()
 static func getInstance() -> PatientViewModel {
 if instance == nil
 { instance = PatientViewModel()
-initialiseOclFile()
-initialiseOclType() }
+ }
 return instance! }
 
 @Published var currentPatient : PatientVO? = PatientVO.defaultPatientVO()
