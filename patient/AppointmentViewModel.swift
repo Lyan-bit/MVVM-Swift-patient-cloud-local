@@ -14,8 +14,7 @@ class AppointmentViewModel : ObservableObject {
 	static func getInstance() -> AppointmentViewModel {
 		if instance == nil
 	     { instance = AppointmentViewModel()
-	       initialiseOclFile()
-	       initialiseOclType() }
+	     }
 	    return instance! }
 	                          
 	init() { 
